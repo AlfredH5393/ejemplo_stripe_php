@@ -87,3 +87,20 @@ VALUES(
     'a10s.jpg',
     'mxn'
   );
+
+CREATE TABLE venta(
+ id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+ fecha DATE NULL,
+ idTransaccionStripe VARCHAR(50) NOT NULL
+ ) 
+ 
+ CREATE TABLE venta_detalle(
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  idVenta INT NULL,
+  idProducto INT NULL,
+  cantidad INT NULL,
+  precio FLOAT  NULL,
+  importe FLOAT NULL,
+  FOREIGN KEY (idVenta) REFERENCES `venta`(id),
+  FOREIGN KEY (idProducto) REFERENCES `productos`(id)
+ );
